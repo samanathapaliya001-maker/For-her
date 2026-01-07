@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Soniya 💖</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Montserrat:wght@400;700&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+        background: url('https://i.ibb.co/9YW6y5Y/tulips-bg.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: #fff;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 700px;
+        padding: 20px;
+        background: rgba(255, 192, 203, 0.2);
+        border-radius: 20px;
+        box-shadow: 0 0 30px rgba(255, 192, 203, 0.7);
+    }
+
+    h1, h2 {
+        font-family: 'Sacramento', cursive;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 8px #ffb6c1;
+    }
+
+    button {
+        font-family: 'Montserrat', sans-serif;
+        padding: 12px 25px;
+        font-size: 1.2em;
+        margin: 10px;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+
+    .yes-btn {
+        background: #ff69b4;
+        color: #fff;
+    }
+
+    .no-btn {
+        background: #ffa07a;
+        color: #fff;
+    }
+
+    .envelope {
+        width: 150px;
+        height: 100px;
+        margin: 20px auto;
+        background: #fff0f5;
+        border: 2px solid #ff69b4;
+        border-radius: 10px;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        color: #ff69b4;
+        box-shadow: 0 0 20px rgba(255,105,180,0.5);
+        transition: transform 0.3s ease;
+    }
+
+    .envelope:hover {
+        transform: scale(1.2);
+    }
+
+    .animated-animal {
+        width: 100px;
+        position: absolute;
+        bottom: 10px;
+        animation: float 4s ease-in-out infinite;
+    }
+
+    .cat { left: 10%; }
+    .bear { right: 10%; }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0); }
+    }
+
+    .hidden { display: none; }
+    .message-box {
+        background: rgba(255,192,203,0.6);
+        padding: 20px;
+        border-radius: 15px;
+        font-size: 1.2em;
+        line-height: 1.6em;
+        color: #fff;
+        text-align: left;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<audio id="bg-music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container" id="container">
+    <h1 id="text">I have something to tell you, Soniya 💖</h1>
+    <button onclick="askSoniya('okay')">Okay</button>
+    <button onclick="askSoniya('no')">No, I don't want to know</button>
+</div>
+
+<img src="https://i.ibb.co/vVqLZFH/cat.png" class="animated-animal cat">
+<img src="https://i.ibb.co/3v2xTmf/bear.png" class="animated-animal bear">
+
+<script>
+let container = document.getElementById('container');
+let text = document.getElementById('text');
+let bgMusic = document.getElementById('bg-music');
+
+function askSoniya(answer) {
+    if(answer === 'no') {
+        alert("Come on, Soniya! I really want to tell you 💖");
+        return;
+    }
+
+    // If she clicks okay
+    container.innerHTML = `
+        <h1>Will you be my girlfriend, Soniya? 😘</h1>
+        <button class="yes-btn" onclick="girlfriendYes()">Yes</button>
+        <button class="no-btn" onclick="girlfriendNo()">No</button>
+    `;
+    bgMusic.play();
+}
+
+function girlfriendNo() {
+    alert("I can't give up! Please think again 💖");
+}
+
+function girlfriendYes() {
+    container.innerHTML = `
+        <h1>💌 Click the envelope 💌</h1>
+        <div class="envelope" onclick="openEnvelope()">📩</div>
+    `;
+}
+
+function openEnvelope() {
+    container.innerHTML = `
+        <div class="message-box">
+            Soniya, I like you so much. You make my days brighter and happier. 
+            Your kindness, your smile, your laughter, everything about you is amazing. 
+            I just want to be with you, take care of you, and make you feel loved every day. 
+            You are pretty, cool, and incredibly special to me. I really like you a lot 💖
+        </div>
+        <button class="yes-btn" onclick="finalQuestion()">Next</button>
+    `;
+}
+
+function finalQuestion() {
+    container.innerHTML = `
+        <h1>So, will you be my girlfriend, Soniya? 💕</h1>
+        <button class="yes-btn" onclick="finalYes()">Yes</button>
+        <button class="yes-btn" onclick="finalYes()">Ofc yes baby 😘</button>
+    `;
+}
+
+function finalYes() {
+    container.innerHTML = `
+        <h1>Yay! 💖 I'm so happy, Soniya! Can't wait to be with you! 🥰</h1>
+    `;
+}
+</script>
+</body>
+  </html>
